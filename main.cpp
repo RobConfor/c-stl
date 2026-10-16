@@ -1,19 +1,27 @@
 #include <iostream>
 #include <string> 
-#include "vector.h"
+#include <utility>
+#include <cassert>
+#include "src/vector.h"
+#include "src/unique.h"
+
+
 
 void testVector();
 void testStack();
 void testQueue();
+void testUnique();
 
 
 int main(){
 
     testVector();
 
-    testStack();
+    testUnique();
 
-    testQueue();
+    //testStack();
+
+    //testQueue();
 
     return 0;
 }
@@ -33,4 +41,12 @@ void testVector(){
     // vector<vector<std::string>> vec7;
     // vec7.resize(1);
     // vec7[0] = vec6;
+}
+
+
+void testUnique(){
+    unique_ptr<int> myptr = unique_ptr<int>(new int(10));
+    unique_ptr<int> myptr1 = std::move(myptr);
+    
+    
 }
