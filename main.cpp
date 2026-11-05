@@ -6,7 +6,6 @@
 #include "src/unique.h"
 
 
-
 void testVector();
 void testStack();
 void testQueue();
@@ -36,8 +35,6 @@ void testVector(){
     vec6.push_back("hello");
 
 
-
-
     // vector<vector<std::string>> vec7;
     // vec7.resize(1);
     // vec7[0] = vec6;
@@ -47,6 +44,4 @@ void testVector(){
 void testUnique(){
     unique_ptr<int> myptr = unique_ptr<int>(new int(10));
     unique_ptr<int> myptr1 = std::move(myptr);
-    
-    
 }
