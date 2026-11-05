@@ -29,8 +29,13 @@ public:
         return *this;
     }
 
+    // this can never be true, or else we have invalidated our unqiueness
     bool operator==(const unique_ptr& other) const {
         return _ptr == other._ptr;
+    }
+
+    bool operator==(const T* other) const {
+        return *_ptr == *other;
     }
 
     unique_ptr(unique_ptr&& other) noexcept {
@@ -73,6 +78,6 @@ T* _ptr;
 
 
 template <typename T>
-unique_ptr<T> make_unique(T type){
+unique_ptr<T> make_unique(T val){
     return unique_ptr<T>();
 }

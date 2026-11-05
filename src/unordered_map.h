@@ -6,8 +6,6 @@
 #include <vector>
 
 
-// A bucket's status tells you whether it's empty, occupied, 
-// or contains a deleted element.
 enum class Status : uint8_t {
     Empty,
     Occupied,
