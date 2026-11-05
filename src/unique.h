@@ -3,15 +3,6 @@
 #include <utility> 
 
 
-// // idk what this does differently, maybe uses locks
-// unique_ptr make_unique(){
-
-// }
-
-// unique_ptr make_unique(T* ptr){
-//     _ptr = ptr;
-// }
-
 template <typename T>
 class unique_ptr { 
 public:
@@ -46,7 +37,6 @@ public:
         _ptr = other._ptr;
         other._ptr = nullptr;
     }
-
     
     T* get() const {
         return _ptr;
@@ -80,3 +70,9 @@ private:
 T* _ptr;
 
 };
+
+
+template <typename T>
+unique_ptr<T> make_unique(T type){
+    return unique_ptr<T>();
+}

@@ -8,11 +8,10 @@ class stack {
 
     stack();
 
-    explicit stack(size_t size);
-
-    // custom underlying data structure
-    stack(size_t size);
-
+    explicit stack(size_t size){
+        data = vector<T>(size);
+        _size = size;
+    }
 
     T top() const {
         return data.back();
@@ -22,9 +21,13 @@ class stack {
         data.pop_back();
     }
 
+    ~stack(){
+        ~data();
+    }
 
 private:
-size_t capacity;
+// using vector for better CPU and cache locality
 vector<T> data;
+size_t _size;
 
 };

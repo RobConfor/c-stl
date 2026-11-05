@@ -32,7 +32,6 @@ public:
         return num_elements;
     }
 
-
     V& operator[](const K& key) {
 
         if(num_elements >= buckets.size()/2){
@@ -133,8 +132,6 @@ private:
     }
 
     size_t delete_bucket(const K& key, const Hasher& hash) {
-
-
         size_t index = hash(key) % buckets.size();
 
         for(size_t i = 0; i < buckets.size(); ++i){
@@ -142,9 +139,8 @@ private:
     
             if(buckets[probe].status == Status::Empty){
                 return buckets.size(); 
-            } 
 
-            else if(buckets[probe].status == Status::Occupied && buckets[probe].key == key){
+            } else if(buckets[probe].status == Status::Occupied && buckets[probe].key == key){
                 return probe;
             }
         }

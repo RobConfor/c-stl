@@ -12,9 +12,6 @@ public:
     ~any();
 
 
-
-
-
     emplace();
 
     void reset(){
@@ -22,8 +19,6 @@ public:
     }
 
     swap();
-
-
 
 
     has_value();
@@ -34,6 +29,5 @@ private:
 
 // underlying data 
 void* _data;
-
 
 };

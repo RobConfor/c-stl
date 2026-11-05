@@ -46,19 +46,19 @@ public:
 //////////////// CONSTRUCTORS //////////////////
 //////////////// CONSTRUCTORS //////////////////
 
-    vector() {
+    virtual vector() {
         _size = 0;
         _capacity = 2;
         _data = new T[_capacity];
     }
 
-    explicit vector(size_t size){
+    virtual explicit vector(size_t size){
         _data = new T[size];
         _size = 0;
         _capacity = size;
     }
 
-    vector(size_t size, T* vals){
+    virtual vector(size_t size, T* vals){
 
         _data = new T[size];
 
@@ -82,7 +82,7 @@ public:
     // }
 
 
-    vector(size_t size, const T& val){
+    virtual vector(size_t size, const T& val){
         _data = new T[size];
         _capacity = size;
 
@@ -107,14 +107,14 @@ public:
         return *(_data + idx);
     }
 
-    T& at(size_t index) {
+    virtual T& at(size_t index) {
         if (index >= _size) {
             throw std::out_of_range("vector::at index out of range");
         }
         return _data[index];
     }
 
-    const T& at(size_t index) const {
+    virtual const T& at(size_t index) const {
         if (index >= _size) {
             throw std::out_of_range("vector::at index out of range");
         }
@@ -123,11 +123,11 @@ public:
 
 
     // ALLOCATION ///
-    void resize(size_t size){
+    virtual void resize(size_t size){
         _data = new T[size];
     }
 
-    void resize(size_t size, const T val){
+    virtual void resize(size_t size, const T val){
         _data = new T[size];
 
         for(size_t i = 0; i < size; ++i){
@@ -136,12 +136,12 @@ public:
 
     }
 
-    void reserve(size_t size) noexcept {
+    virtual void reserve(size_t size) noexcept {
         _data = new T[size];
     }
 
 
-    void push_back(T val){
+    virtual void push_back(T val){
         if(_size == _capacity){
             __reallocate(_capacity * 2);
         }
@@ -149,11 +149,11 @@ public:
         ++_size;
     }
 
-    T back() const {
+    virtual T back() const {
         return _data[_size - 1];
     }
 
-    void pop_back() {
+    virtual void pop_back() {
         if(_size == 0){
             // error; 
             return;
@@ -161,7 +161,7 @@ public:
         _size--;
     }
     
-    size_t size(){
+    virtual size_t size(){
         return _size;
     }
 
