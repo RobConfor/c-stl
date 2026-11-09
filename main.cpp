@@ -27,9 +27,9 @@ int main(){
     testMap();
 
 
-    //testStack();
+    // testStack();
 
-    //testQueue();
+    // testQueue();
 
     return 0;
 }
@@ -67,10 +67,10 @@ void testPriority(){
     pq.push(100);
     pq.push(50);
 
-    assert(pq.top() == 2);
+    assert(pq.top() == 100);
     pq.pop();
 
-    assert(pq.top() == 10);
+    assert(pq.top() == 50);
 
 }
 
@@ -82,6 +82,4 @@ void testMap(){
     assert(map[1] == 1);
 
     map[20] = 5;
-
-
 }

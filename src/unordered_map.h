@@ -22,7 +22,7 @@ public:
         V val;
     };
 
-    HashTable() {
+    unordered_map() {
         buckets.resize(20);
     }
 
